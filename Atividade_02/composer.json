@@ -1,0 +1,22 @@
+{
+    "name": "sergi/atividade_02",
+    "description": "Atividade 2 - Disciplina: DAOO",
+    "type": "project",
+    "require-dev": {
+        "psy/psysh": "@stable"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sergi\\Atividade02\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "S3rgioLuiz",
+            "email": "sergiorosario.pl012@academico.ifsul.edu.br"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
