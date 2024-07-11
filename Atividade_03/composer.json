@@ -1,0 +1,27 @@
+{
+    "name": "sergi/atividade_03",
+    "description": "Atividade 3 - Disciplina: DAOO",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "require-dev": {
+        "psy/psysh": "^0.12.3"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sergi\\Atividade03\\": "src/"
+        }
+    },
+    "scripts": {
+        "start":"php -S localhost:8081 -t src",
+        "psy":"./vendor/psy/psysh/bin/psysh"
+    },
+    "authors": [
+        {
+            "name": "S3rgioLuiz",
+            "email": "sergiorosario.pl012@academico.ifsul.edu.br"
+        }
+    ]
+}
