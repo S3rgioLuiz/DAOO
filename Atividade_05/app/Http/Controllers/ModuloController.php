@@ -34,4 +34,33 @@ class ModuloController extends Controller
 
     }
 
+    public function show($id)
+    {
+        // Mostrar a view com um módulo específico
+        return view('modulo.show', [
+            'modulo' => Modulo::findOrFail($id)
+        ]);
+    }
+
+    public function edit($id)
+    {
+        // Mostrar a view para editar um módulo específico
+        return view('modulo.edit', [
+            'modulo' => Modulo::findOrFail($id)
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Validar os dados da requisição
+        $dados = $request;
+
+        // Encontrar o módulo pelo ID e atualizar com os dados validados
+        $modulo = Modulo::findOrFail($id);
+        $modulo->update($dados);
+
+        // Redirecionar para a lista de módulos
+        return redirect('/modulos');
+    }
+
 }

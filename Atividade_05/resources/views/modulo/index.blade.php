@@ -47,8 +47,8 @@
                         <td>{{ $modulo->descricao }}</td>
                         <td>{{ $modulo->status }}</td>
                         <td class="action-buttons">
-                            <a href="" class="btn btn-info">Ver</a>
-                            <a href="{" class="btn btn-warning">Editar</a>
+                            <a href="{{ route('modulos.show', $modulo->id) }}" class="btn btn-info">Ver</a>
+                            <a href="{{ route('modulos.edit', $modulo->id) }}" class="btn btn-warning">Editar</a>
                             <form action="" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
