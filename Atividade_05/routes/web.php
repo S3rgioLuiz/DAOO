@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\View;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ModuloController;
 use App\Http\Controllers\QuestaoController;
+use App\Http\Controllers\AlternativaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,3 +44,19 @@ Route::get('/questao/{id}/edit', [QuestaoController::class, 'edit'])->name('ques
 Route::post('/questao/{id}/edit', [QuestaoController::class, 'update'])->name('questao.update');
 
 Route::delete('/questao/{id}', [QuestaoController::class, 'destroy'])->name('questao.destroy');
+
+//ALTERNATIVAS
+
+Route::get('/alternativas', [AlternativaController::class, 'index'])->name('alternativas.index');
+
+Route::get('/alternativa/create', [AlternativaController::class, 'create'])->name('alternativa.create');
+
+Route::post('/alternativa', [AlternativaController::class, 'store'])->name('alternativa.store');
+
+Route::get('/alternativa/{id}', [AlternativaController::class, 'show'])->name('alternativa.show');
+
+Route::get('/alternativa/{id}/edit', [AlternativaController::class, 'edit'])->name('alternativa.edit');
+
+Route::post('/alternativa/{id}/edit', [AlternativaController::class, 'update'])->name('alternativa.update');
+
+Route::delete('/alternativa/{id}', [AlternativaController::class, 'destroy'])->name('alternativa.destroy');
