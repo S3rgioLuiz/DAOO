@@ -24,8 +24,6 @@ class ModuloController extends Controller
 
     public function store(Request $request)
     {
-        // Validar os dados da requisição
-
         $dados = $request->all();
 
         if(Modulo::create($dados)){
@@ -52,10 +50,9 @@ class ModuloController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validar os dados da requisição
         $dados = $request->all();
 
-        // Encontrar o módulo pelo ID e atualizar com os dados validados
+        // Encontrar o módulo pelo ID e atualizar
         $modulo = Modulo::findOrFail($id);
         $modulo->update($dados);
 

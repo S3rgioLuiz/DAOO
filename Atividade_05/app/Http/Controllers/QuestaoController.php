@@ -23,7 +23,7 @@ class QuestaoController extends Controller
 
     public function store(Request $request)
     {
-        // Validar e criar uma nova questão
+        // Criar uma nova questão
         $dados = $request->all();
 
         if(Questao::create($dados)){
@@ -49,7 +49,7 @@ class QuestaoController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validar e atualizar uma questão existente
+        // Atualizar uma questão existente
        $dados = $request->all();
 
         $questao = Questao::findOrFail($id);
