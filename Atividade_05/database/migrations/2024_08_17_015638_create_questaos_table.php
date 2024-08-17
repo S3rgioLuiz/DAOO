@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('pergunta');
             $table->string('explicacao');
             $table->string('referencia');
+            $table->integer('nivel');
             $table->integer('status')->default(0);
             $table->timestamps();
         });
