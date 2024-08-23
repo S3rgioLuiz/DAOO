@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Questao;
+use App\Models\Modulo;
 use Illuminate\Http\Request;
 
 class QuestaoController extends Controller
@@ -17,8 +18,13 @@ class QuestaoController extends Controller
 
     public function create()
     {
+         // Obter todos os módulos disponíveis
+        $modulos = Modulo::all();
+
         // Retornar a view para criar uma nova questão
-        return view('questao.create');
+        return view('questao.create', [
+            'modulos' => $modulos
+        ]);
     }
 
     public function store(Request $request)

@@ -14,6 +14,10 @@ return new class extends Migration
     {
         Schema::create('questoes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('modulo_id')
+                ->references('id')
+                ->on('modulos')
+                ->cascadeOnDelete();
             $table->string('pergunta');
             $table->string('explicacao');
             $table->string('referencia');

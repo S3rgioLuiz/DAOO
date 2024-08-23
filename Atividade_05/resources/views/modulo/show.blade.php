@@ -42,11 +42,27 @@
         .btn-edit:hover {
             background-color: #0056b3;
         }
-        .btn-delete {
+        .btn.btn-danger {
             background-color: #dc3545;
         }
         .btn-delete:hover {
             background-color: #c82333;
+        }
+        .questions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .questions-table th, .questions-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .questions-table th {
+            background-color: #f2f2f2;
+        }
+        .questions-table td a {
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -65,6 +81,46 @@
         <div class="action-buttons">
             <a href="{{ route('modulos.index') }}" class="btn btn-secondary">Voltar para a Lista</a>
         </div>
+
+        <h2>Questões Associadas</h2>
+        @if ($modulo->questoes->isEmpty())
+            <p>Não há questões associadas a este módulo.</p>
+        @else
+            <table class="questions-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Pergunta</th>
+                        <th>Explicação</th>
+                        <th>Referência</th>
+                        <th>Nível</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($modulo->questoes as $questao)
+                        <tr>
+                            <td>{{ $questao->id }}</td>
+                            <td>{{ $questao->pergunta }}</td>
+                            <td>{{ $questao->explicacao }}</td>
+                            <td>{{ $questao->referencia }}</td>
+                            <td>{{ $questao->nivel }}</td>
+                            <td>{{ $questao->status }}</td>
+                            <td class="action-buttons">
+                                <a href="{{ route('questao.show', $questao->id) }}" class="btn btn-info">Ver</a>
+                                <a href="{{ route('questao.edit', $questao->id) }}" class="btn btn-warning">Editar</a>
+                                <form action="{{ route('questao.destroy', $questao->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Excluir</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @endif
     </div>
 </body>
 </html>

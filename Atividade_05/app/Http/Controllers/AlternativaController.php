@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alternativa;
+use App\Models\Questao;
 use Illuminate\Http\Request;
 
 class AlternativaController extends Controller
@@ -18,8 +19,11 @@ class AlternativaController extends Controller
 
     public function create()
     {
-        // Retornar a view para criar uma nova alternativa
-        return view('alternativa.create');
+
+        // Certifique-se de passar a lista de questões para a view
+        $questoes = Questao::all();
+        return view('alternativa.create', compact('questoes'));
+
     }
 
     public function store(Request $request)
@@ -64,10 +68,10 @@ class AlternativaController extends Controller
 {
     // Encontrar a alternativa pelo ID
     $alternativa = Alternativa::findOrFail($id);
-    
+
     // Excluir a alternativa
     $alternativa->delete();
-    
+
     // Redirecionar para a lista de alternativas
     return redirect('/alternativas');
 }

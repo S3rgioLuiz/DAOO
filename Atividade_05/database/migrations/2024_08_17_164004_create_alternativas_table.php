@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('alternativas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('questao_id')
+                ->references('id')
+                ->on('questoes')
+                ->cascadeOnDelete();
             $table->string('opcao');
             $table->boolean('status');
             $table->timestamps();

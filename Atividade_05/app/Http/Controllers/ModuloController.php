@@ -34,9 +34,11 @@ class ModuloController extends Controller
 
     public function show($id)
     {
-        // Mostrar a view com um módulo específico
+        // Encontrar o módulo pelo ID e carregar as questões associadas
+        $modulo = Modulo::with('questoes')->findOrFail($id);
+
         return view('modulo.show', [
-            'modulo' => Modulo::findOrFail($id)
+            'modulo' => $modulo
         ]);
     }
 
@@ -64,10 +66,10 @@ class ModuloController extends Controller
 {
     // Encontrar o módulo pelo ID
     $modulo = Modulo::findOrFail($id);
-    
+
     // Excluir o módulo
     $modulo->delete();
-    
+
     // Redirecionar para a lista de módulos
     return redirect('/modulos');
 }

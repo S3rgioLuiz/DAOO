@@ -54,6 +54,21 @@
                 @csrf
 
                 <div class="form-group">
+                    <label for="questao_id">Questão</label>
+                    <select id="questao_id" name="questao_id" required>
+                        <option value="">Selecione uma questão</option>
+                        @foreach ($questoes as $questao)
+                            <option value="{{ $questao->id }}" {{ old('questao_id') == $questao->id ? 'selected' : '' }}>
+                                {{ $questao->pergunta }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('questao_id')
+                        <div class="error">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
                     <label for="opcao">Opção</label>
                     <input type="text" id="opcao" name="opcao" value="{{ old('opcao') }}" required>
                     @error('opcao')

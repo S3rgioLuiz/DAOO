@@ -21,7 +21,7 @@
             display: block;
             margin-bottom: 5px;
         }
-        .form-group input, .form-group textarea {
+        .form-group input, .form-group textarea, .form-group select {
             width: 100%;
             padding: 8px;
             border: 1px solid #ddd;
@@ -47,6 +47,18 @@
         <div class="form-container">
             <form action="{{ route('questao.store') }}" method="POST">
                 @csrf
+
+                <div class="form-group">
+                    <label for="modulo_id">Módulo</label>
+                    <select id="modulo_id" name="modulo_id" required>
+                        <option value="">Selecione um módulo</option>
+                        @foreach ($modulos as $modulo)
+                            <option value="{{ $modulo->id }}" {{ old('modulo_id') == $modulo->id ? 'selected' : '' }}>
+                                {{ $modulo->nome }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
 
                 <div class="form-group">
                     <label for="pergunta">Pergunta</label>

@@ -10,7 +10,12 @@ class Alternativa extends Model
     use HasFactory;
 
     protected $fillable = [
+        'questao_id',
         'opcao',
         'status',
     ];
+
+    public function questao() {
+        return $this->belongsTo(Questao::class);
+    }
 }
