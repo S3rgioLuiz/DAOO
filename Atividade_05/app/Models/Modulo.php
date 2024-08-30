@@ -19,4 +19,9 @@ class Modulo extends Model
     public function questoes() {
         return $this->hasMany(Questao::class);
     }
+
+
+    public function alternativas(){
+        return $this->hasManyThrough(Alternativa::class, Questao::class);
+    }
 }

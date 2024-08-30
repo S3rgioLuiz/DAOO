@@ -47,7 +47,7 @@ class AlternativaSeeder extends Seeder
             // Alternativas para a questão 2
             [
                 'questao_id' => 2,
-                'opcao' => '15',
+                'opcao' => '16',
                 'status' => true,
                 'created_at' => $now,
                 'updated_at' => $now,
@@ -76,7 +76,7 @@ class AlternativaSeeder extends Seeder
             // Alternativas para a questão 3
             [
                 'questao_id' => 3,
-                'opcao' => '5',
+                'opcao' => 'Múltiplica por 3 o Conteúdo Armazenado em $X',
                 'status' => true,
                 'created_at' => $now,
                 'updated_at' => $now,
@@ -106,7 +106,7 @@ class AlternativaSeeder extends Seeder
             [
                 'questao_id' => 4,
                 'opcao' => '20',
-                'status' => true,
+                'status' => false,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
@@ -127,14 +127,14 @@ class AlternativaSeeder extends Seeder
             [
                 'questao_id' => 4,
                 'opcao' => '5',
-                'status' => false,
+                'status' => true,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
             // Alternativas para a questão 5
             [
                 'questao_id' => 5,
-                'opcao' => '8',
+                'opcao' => 'Pega o Resto da Divisão de $X por 4',
                 'status' => true,
                 'created_at' => $now,
                 'updated_at' => $now,
@@ -163,7 +163,7 @@ class AlternativaSeeder extends Seeder
             // Alternativas para a questão 6
             [
                 'questao_id' => 6,
-                'opcao' => '2',
+                'opcao' => '11',
                 'status' => true,
                 'created_at' => $now,
                 'updated_at' => $now,
@@ -192,7 +192,7 @@ class AlternativaSeeder extends Seeder
             // Alternativas para a questão 7
             [
                 'questao_id' => 7,
-                'opcao' => '10',
+                'opcao' => '',
                 'status' => true,
                 'created_at' => $now,
                 'updated_at' => $now,
@@ -221,7 +221,7 @@ class AlternativaSeeder extends Seeder
             // Alternativas para a questão 8
             [
                 'questao_id' => 8,
-                'opcao' => 'true',
+                'opcao' => 'Símbolo de Exponenciação',
                 'status' => true,
                 'created_at' => $now,
                 'updated_at' => $now,
