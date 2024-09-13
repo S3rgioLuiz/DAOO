@@ -60,3 +60,5 @@ Route::get('/alternativa/{id}/edit', [AlternativaController::class, 'edit'])->na
 Route::post('/alternativa/{id}/edit', [AlternativaController::class, 'update'])->name('alternativa.update');
 
 Route::delete('/alternativa/{id}', [AlternativaController::class, 'destroy'])->name('alternativa.destroy');
+
+include_once __DIR__."/querys.php";
